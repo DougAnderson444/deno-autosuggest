@@ -27,18 +27,23 @@ Code examples:
 - [NodeJS](https://github.com/thaumant/lucid-suggest/tree/master/examples/node-ts)
 - [React](https://github.com/thaumant/lucid-suggest/tree/master/examples/browser-react-ts)
 - [Vue](https://github.com/thaumant/lucid-suggest/tree/master/examples/browser-vue)
+- [Deno](https://raw.githubusercontent.com/DougAnderson444/deno-autosuggest/examples/deno)
 
 
-## Getting started
+## Getting started (Nodejs)
 
 Install:
 ```shell
 npm install lucid-suggest
 ```
+## Getting started (Nodejs/Deno)
+
 
 Initialize:
 ```javascript
-import {LucidSuggest} from 'lucid-suggest/en'
+import { LucidSuggest } from 'lucid-suggest/en' // nodejs
+// or
+import { LucidSuggest } from 'https://raw.githubusercontent.com/DougAnderson444/deno-autosuggest/master/javascript/en.js' // Deno
 
 const suggest = new LucidSuggest()
 suggest.addRecords([
@@ -53,7 +58,13 @@ Search:
 await suggest.search("batteries")
 // returns:
 // [
-//   Hit { title: "AA Alkaline [Batteries]" }
+//   Hit {
+//     record: { id: 3, title: "AA Alkaline Batteries" },
+//     chunks: [
+//       { text: "AA Alkaline ", highlight: false },
+//       { text: "Batteries", highlight: true }
+//     ]
+//   }
 // ]
 ```
 
